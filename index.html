@@ -1,0 +1,53 @@
+<!Doctype html>
+<html>
+<head>
+  <title>Real Time Chat Using Web Sockets</title>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width , initial-scale=1">
+</head>
+
+<body>
+
+	<div class="loader">
+		
+		<img src="./loader.gif">
+
+	</div>
+
+	<div class="introduction">
+		<p>Welcome to The socket.io Chat Application</p>
+	</div>
+
+	<div class="userName">
+		
+		<form>
+			
+			<label>Hi User, Please Enter a Username</label><br><br>
+			<input type="text" name="username" id="username" required><br><br>
+			<input type="submit" name="submit">
+		</form>
+
+	</div>                              
+
+	<div class="chatWrapper">
+		
+		<div class="chatBox">
+
+    	</div>
+		
+		<div class="message">
+			<form>
+				<textarea rows="3" placeholder="Enter Message"></textarea>
+				<input class="sendButton" type="submit" name="submit" value="Send">
+			</form>
+		</div>
+
+	</div>
+  	<script type="text/javascript" src="./socket.io.js"></script>
+	<script type="text/javascript" src="./jQuery.js"></script>
+	<script type="text/javascript" src="./script.js"></script>
+	
+</body>
+
+</html>
