@@ -15,9 +15,12 @@ $('.userName form').submit(function (e) {
     $('.userName input[type="submit"]').attr("disabled",true);
     $('.chatWrapper').css("display", "block");
     Username = $('#username').val();
-    socket.emit('username',Username);
-    
+    socket.emit('username',Username); 
 });
+
+setInterval(function(){
+	socket.emit('heartbeat',Username);
+},1000);
 
 socket.on('username',function (username) {  
 
@@ -32,10 +35,16 @@ socket.on('message',function (message) {
 });
 
 socket.on('disconnect', function() {
-
-	chatBox.append($('<p id="user"> Someone disconnected'+'</p>'));
-
+	
+	console.log("My name is", Username);
+	socket.emit('myname',Username);
 });
+
+socket.on("disconnectedName", function(disconnectedName){
+	
+	chatBox.append($('<p id="user">'+disconnectedName+' disconnected'+'</p>'));
+});
+
 
 textarea.keypress(function(event) {
 	
@@ -69,7 +78,6 @@ $('.message form').submit(function(e) {
 	e.preventDefault();
 
 });
-
 
 
 
